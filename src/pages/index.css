@@ -65,11 +65,13 @@ h3 {
   background-color: #fff;
   min-height: 60px;
   border-radius: 20px;
+  margin-bottom: 15px;
 }
 .task__text {
   width: 80%;
   word-break: break-all;
   line-height: 1.5;
+  margin-left: 30px;
 }
 .task__remove {
   position: absolute;
@@ -90,19 +92,63 @@ h3 {
 .task__remove:hover {
   opacity: 1;
 }
-/* .block__inner {
-  outline: 1px solid greenyellow;
-} */
 
 .no-task_hidden {
   display: none;
 }
 
-.task__checkbox {
-  margin: 0 10px 0 15px;
+/* Check */
+.check {
+  padding-left: 1.2em;
+}
+.check__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
 }
 
-.task > input:checked + .task__text {
+.check__box {
+  position: absolute;
+  top: 23px;
+  text-align: center;
+  box-shadow: 0 0 0 0.1em #1b434d;
+  -webkit-box-shadow: 0 0 0 0.1em #1b434d;
+  border-radius: 0.3em;
+  width: 15px;
+  height: 15px;
+}
+.check__box > input:checked + .task__text {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+/* Checked */
+.check__input:checked + .check__box {
+  background-color: #1b434d;
+  background-image: url(../img/check.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Focused */
+.check__input:focus + .check__box {
+  /*   box-shadow: 0 0 0 0.1em #1b434d, 0 0 0 0.2em #ff5a00; */
+}
+
+/* Disabled */
+.check__input:disabled + .check__box {
+  box-shadow: 0 0 0 0.1em #959595;
+}
+.check__input:checked:disabled + .check__box {
+  background-color: #959595;
+}
+
+/* input[type='checkbox']:checked + label.check__input {
+  text-decoration: line-through;
+} */
+
+.check__input > input:checked ~ .task__text {
   text-decoration: line-through;
   opacity: 0.5;
 }
