@@ -1,10 +1,10 @@
+import './normalize.css';
 import './index.css';
 
 const container = document.querySelector('.container');
 const noTaskElement = container.querySelector('.no-task__text');
 const form = container.querySelector('.input');
 const addTaskButton = form.querySelector('.input__btn_action_add');
-// const addTaskButton = document.querySelector('.input__btn_action_add');
 const redContainer = container.querySelector('.task-container');
 
 const tasks = document.querySelectorAll('.task');
@@ -42,53 +42,28 @@ let arr = [];
 const task = document.querySelector('.input__text_type_task');
 let valInp = task.value;
 
-//Добавление таски
-// addTaskButton.addEventListener('click', () => {
-//   if (task.value.length > 0) {
-//     console.log('work');
-//     addTask(task.value);
-//     arr.push(valInp);
-//     task.value = '';
-//     setSubmitButtonState();
-//   } else {
-//     console.log('yop');
-//   }
-//   renderHasTask();
-// });
-
 addTaskButton.addEventListener('click', () => {
   pushTask();
 });
 function pushTask() {
   if (task.value.length > 0) {
-    console.log('work');
     addTask(task.value);
     arr.push(valInp);
     task.value = '';
     setSubmitButtonState();
   } else {
-    console.log('yop');
   }
   renderHasTask();
 }
 
 form.addEventListener('keydown', (evt) => {
   if (evt.keyCode === 13) {
-    console.log('enter');
-    // addTask();
     pushTask();
   } else {
   }
-
   // renderHasTask();
 });
 
-// form.addEventListener('keypress', (keyPressed) => {
-//   const keyEnter = 13;
-//   if (keyPressed.which == keyEnter) {
-//     console.log('enter');
-//   }
-// });
 function setSubmitButtonState(isFormValid) {
   if (isFormValid) {
     addTaskButton.removeAttribute('disabled');

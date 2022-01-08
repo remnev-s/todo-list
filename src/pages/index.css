@@ -67,8 +67,9 @@ h3 {
   border-radius: 20px;
 }
 .task__text {
-  width: 90%;
+  width: 80%;
   word-break: break-all;
+  line-height: 1.5;
 }
 .task__remove {
   position: absolute;
@@ -83,11 +84,15 @@ h3 {
 
   cursor: pointer;
   border: none;
+  opacity: 0.5;
 }
 
-.block__inner {
-  outline: 1px solid greenyellow;
+.task__remove:hover {
+  opacity: 1;
 }
+/* .block__inner {
+  outline: 1px solid greenyellow;
+} */
 
 .no-task_hidden {
   display: none;
