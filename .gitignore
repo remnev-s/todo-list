@@ -6,10 +6,10 @@ Thumbs.db
 *.pdf
 *.log
 
-*.json
 .nova/
 
 build/
+dist/
 node_modules/
 
 
