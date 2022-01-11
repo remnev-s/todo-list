@@ -2,10 +2,10 @@ import './normalize.css';
 import './index.css';
 
 const container = document.querySelector('.container');
-const noTaskElement = container.querySelector('.no-task__text');
+const noTaskElement = container.querySelector('.task-container__text');
 const form = container.querySelector('.input');
 const addTaskButton = form.querySelector('.input__btn_action_add');
-const redContainer = container.querySelector('.task-container');
+const taskContainer = container.querySelector('.task-container');
 
 const tasks = document.querySelectorAll('.task');
 const taskArr = Array.from(tasks);
@@ -35,7 +35,7 @@ function addTask(taskValue) {
       evt.target.closest('.task').remove();
       renderNoTask();
     });
-  redContainer.append(taskElement);
+  taskContainer.append(taskElement);
 }
 
 let arr = [];
