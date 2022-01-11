@@ -1,0 +1,150 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #cdd8df;
+  font-family: sans-serif;
+}
+.container {
+  align-items: center;
+  max-width: 500px;
+  padding: 0 15px;
+  margin: auto;
+}
+
+h3 {
+  padding: 50px 0 20px;
+}
+
+.input {
+  position: relative;
+  min-height: 60px;
+  background-color: #1b434d;
+  border-radius: 20px;
+  padding: 20px 0 20px 25px;
+}
+.input__text {
+  font-size: 14px;
+  margin-right: 20px;
+  border: none;
+  outline: none;
+  width: 80%;
+  background: transparent;
+  color: #fff;
+}
+.input__btn {
+  position: absolute;
+  background-image: url(../img/add-task.svg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border-radius: 2px;
+  border: none;
+  cursor: pointer;
+
+  width: 30px;
+  height: 30px;
+  right: 30px;
+  top: 15px;
+}
+.input__btn_disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.task {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+  border-radius: 5px;
+  font-size: 0.8em;
+  padding: 10px;
+  background-color: #fff;
+  min-height: 60px;
+  border-radius: 20px;
+  margin-bottom: 15px;
+}
+.task__text {
+  /*   width: 80%; */
+  word-break: break-all;
+  line-height: 1.5;
+  /*   margin-left: 30px; */
+  margin: 0 33px 0 0;
+  /*   padding-right: 30px; */
+}
+.task__remove {
+  position: absolute;
+  background-image: url(../img/close-task.svg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-color: #fff;
+
+  width: 25px;
+  height: 25px;
+  right: 10px;
+
+  cursor: pointer;
+  border: none;
+  opacity: 0.5;
+}
+
+.task__remove:hover {
+  opacity: 1;
+}
+
+.no-task_hidden {
+  display: none;
+}
+
+/* Check */
+.check {
+  padding-left: 45px;
+}
+.check__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.check__box {
+  position: absolute;
+  top: 23px;
+  text-align: center;
+  box-shadow: 0 0 0 0.1em #1b434d;
+  -webkit-box-shadow: 0 0 0 0.1em #1b434d;
+  border-radius: 0.3em;
+  width: 15px;
+  height: 15px;
+  margin-left: -30px;
+}
+
+/* Checked */
+.check__input:checked + .check__box {
+  background-color: #1b434d;
+  background-image: url(../img/check.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Focused */
+.check__input:focus + .check__box {
+  /*   box-shadow: 0 0 0 0.1em #1b434d, 0 0 0 0.2em #ff5a00; */
+}
+
+/* Disabled */
+.check__input:disabled + .check__box {
+  box-shadow: 0 0 0 0.1em #959595;
+}
+.check__input:checked:disabled + .check__box {
+  background-color: #959595;
+}
+
+.task > .check > .check__input:checked + .check__box + .task__text {
+  text-decoration: line-through;
+  opacity: 0.5;
+}

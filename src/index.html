@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--     <link rel="stylesheet" href="css/style.css" /> -->
+    <title>Todo list js</title>
+  </head>
+  <body>
+    <main class="container">
+      <div class="block">
+        <h3>Добавь задачу</h3>
+        <div class="input">
+          <input
+            type="text"
+            placeholder="Что надо сделать"
+            class="input__text input__text_type_task"
+          />
+          <button
+            class="input__btn input__btn_action_add input__btn_disabled"
+          ></button>
+        </div>
+      </div>
+      <div class="block">
+        <h3>Задачи</h3>
+
+        <div class="task-container">
+          <p class="task-container__text">Нет задач</p>
+        </div>
+      </div>
+      <template id="task-template">
+        <div class="task">
+          <label class="check">
+            <input type="checkbox" class="check__input" />
+            <span class="check__box"></span>
+            <div class="task__text"></div>
+          </label>
+          <button class="task__remove"></button>
+        </div>
+      </template>
+    </main>
+  </body>
+</html>
