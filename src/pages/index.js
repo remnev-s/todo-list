@@ -9,23 +9,16 @@ const taskContainer = container.querySelector('.task-container');
 
 const tasks = document.querySelectorAll('.task');
 const taskArr = Array.from(tasks);
-console.log(tasks.length);
 
-function renderHasTask() {
-  if (arr.length > 0) {
-    noTaskElement.classList.add('no-task_hidden');
-  }
-  return;
-}
-function renderNoTask() {
-  if (arr.length === 0) {
-    noTaskElement.classList.remove('no-task_hidden');
-  }
-}
-//функция добавления задачи из темплейта
-function addTask(taskValue) {
+let arr = [];
+const task = document.querySelector('.input__text_type_task');
+let valInp = task.value;
+
+//ФУНКЦИЯ ДОБАВЛЕНИЯ ЗАДАЧИ ИЗ ТЕМПЛЕЙТА
+const addTask = (taskValue) => {
   const taskTemplate = document.querySelector('#task-template').content;
   const taskElement = taskTemplate.querySelector('.task').cloneNode(true);
+
   taskElement.querySelector('.task__text').textContent = taskValue;
 
   taskElement
@@ -36,35 +29,35 @@ function addTask(taskValue) {
       renderNoTask();
     });
   taskContainer.append(taskElement);
-}
+};
 
-let arr = [];
-const task = document.querySelector('.input__text_type_task');
-let valInp = task.value;
-
-addTaskButton.addEventListener('click', () => {
-  pushTask();
-});
-function pushTask() {
+const pushTask = () => {
   if (task.value.length > 0) {
     addTask(task.value);
     arr.push(valInp);
     task.value = '';
     setSubmitButtonState();
-  } else {
   }
   renderHasTask();
-}
+};
 
-form.addEventListener('keydown', (evt) => {
-  if (evt.keyCode === 13) {
-    pushTask();
-  } else {
-  }
-  // renderHasTask();
+addTaskButton.addEventListener('click', () => {
+  pushTask();
 });
 
-function setSubmitButtonState(isFormValid) {
+const renderHasTask = () => {
+  if (arr.length > 0) {
+    noTaskElement.classList.add('no-task_hidden');
+  }
+  return;
+};
+const renderNoTask = () => {
+  if (arr.length === 0) {
+    noTaskElement.classList.remove('no-task_hidden');
+  }
+};
+
+const setSubmitButtonState = (isFormValid) => {
   if (isFormValid) {
     addTaskButton.removeAttribute('disabled');
     addTaskButton.classList.remove('input__btn_disabled');
@@ -72,9 +65,15 @@ function setSubmitButtonState(isFormValid) {
     addTaskButton.setAttribute('disabled', true);
     addTaskButton.classList.add('input__btn_disabled');
   }
-}
+};
 
-form.addEventListener('input', function (evt) {
+form.addEventListener('input', (evt) => {
   const isValid = task.value.length > 0;
   setSubmitButtonState(isValid);
+});
+
+form.addEventListener('keydown', (evt) => {
+  if (evt.keyCode === 13) {
+    pushTask();
+  }
 });
