@@ -28,7 +28,7 @@ const addTask = (taskValue) => {
       evt.target.closest('.task').remove();
       renderNoTask();
     });
-  taskContainer.append(taskElement);
+  taskContainer.prepend(taskElement);
 };
 
 const pushTask = () => {
